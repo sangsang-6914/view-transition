@@ -24,3 +24,100 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ═══════════════════════════════════════════════
+   View Transitions — 하나만 활성화해서 비교하세요
+   ═══════════════════════════════════════════════ */
+
+/* ── 1) Slide + Fade (슬라이드하며 페이드) ── */
+/* ::view-transition-old(root) {
+  animation: slide-fade-out 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+::view-transition-new(root) {
+  animation: slide-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slide-fade-out {
+  to {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+}
+@keyframes slide-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+} */
+
+/* ── 2) Zoom + Fade (축소되며 사라지고, 확대되며 나타남) ── */
+/* ::view-transition-old(root) {
+  animation: zoom-out 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+::view-transition-new(root) {
+  animation: zoom-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes zoom-out {
+  to {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+} */
+
+
+/* ── 3) Flip (Y축 회전 — 카드 뒤집기 느낌) ── */
+/* ::view-transition-old(root) {
+  animation: flip-out 0.6s ease-in forwards;
+}
+::view-transition-new(root) {
+  animation: flip-in 0.6s ease-out forwards;
+}
+
+@keyframes flip-out {
+  to {
+    opacity: 0;
+    transform: perspective(800px) rotateY(90deg);
+  }
+}
+@keyframes flip-in {
+  from {
+    opacity: 0;
+    transform: perspective(800px) rotateY(-90deg);
+  }
+} */
+
+
+/* ── 4) Blur + Fade (블러 처리되며 전환) ── */
+/* ::view-transition-old(root) {
+  animation: blur-out 0.4s ease forwards;
+}
+::view-transition-new(root) {
+  animation: blur-in 0.4s ease forwards;
+}
+
+@keyframes blur-out {
+  to {
+    opacity: 0;
+    filter: blur(12px);
+  }
+}
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+  }
+} */
+
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*) {
+    animation-duration: 0.001ms !important;
+  }
+}
