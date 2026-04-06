@@ -1,4 +1,4 @@
-# Only CSS Animation
+# Only CSS Animation with AI
 
 CSS View Transitions API만으로 SPA처럼 부드러운 페이지 전환을 구현하는 프로젝트입니다.  
 별도의 애니메이션 라이브러리(Framer Motion, GSAP 등) 없이 **브라우저 네이티브 API + CSS 키프레임**만 사용합니다.
