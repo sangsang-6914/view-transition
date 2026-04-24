@@ -26,16 +26,10 @@ body {
 }
 
 /* ═══════════════════════════════════════════════
-   View Transitions — 하나만 활성화해서 비교하세요
+   View Transitions — data-transition으로 런타임 선택
+   (html[data-transition="slide"|"zoom"|"flip"|"blur"])
+   "default" 또는 미설정: 커스텀 애니 없음
    ═══════════════════════════════════════════════ */
-
-/* ── 1) Slide + Fade (슬라이드하며 페이드) ── */
-/* ::view-transition-old(root) {
-  animation: slide-fade-out 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-::view-transition-new(root) {
-  animation: slide-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
 
 @keyframes slide-fade-out {
   to {
@@ -48,14 +42,6 @@ body {
     opacity: 0;
     transform: translateX(80px);
   }
-} */
-
-/* ── 2) Zoom + Fade (축소되며 사라지고, 확대되며 나타남) ── */
-/* ::view-transition-old(root) {
-  animation: zoom-out 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-::view-transition-new(root) {
-  animation: zoom-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes zoom-out {
@@ -69,15 +55,6 @@ body {
     opacity: 0;
     transform: scale(1.15);
   }
-} */
-
-
-/* ── 3) Flip (Y축 회전 — 카드 뒤집기 느낌) ── */
-/* ::view-transition-old(root) {
-  animation: flip-out 0.6s ease-in forwards;
-}
-::view-transition-new(root) {
-  animation: flip-in 0.6s ease-out forwards;
 }
 
 @keyframes flip-out {
@@ -91,15 +68,6 @@ body {
     opacity: 0;
     transform: perspective(800px) rotateY(-90deg);
   }
-} */
-
-
-/* ── 4) Blur + Fade (블러 처리되며 전환) ── */
-/* ::view-transition-old(root) {
-  animation: blur-out 0.4s ease forwards;
-}
-::view-transition-new(root) {
-  animation: blur-in 0.4s ease forwards;
 }
 
 @keyframes blur-out {
@@ -113,8 +81,35 @@ body {
     opacity: 0;
     filter: blur(12px);
   }
-} */
+}
 
+[data-transition="slide"] ::view-transition-old(root) {
+  animation: slide-fade-out 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+[data-transition="slide"] ::view-transition-new(root) {
+  animation: slide-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+[data-transition="zoom"] ::view-transition-old(root) {
+  animation: zoom-out 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+[data-transition="zoom"] ::view-transition-new(root) {
+  animation: zoom-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+[data-transition="flip"] ::view-transition-old(root) {
+  animation: flip-out 0.6s ease-in forwards;
+}
+[data-transition="flip"] ::view-transition-new(root) {
+  animation: flip-in 0.6s ease-out forwards;
+}
+
+[data-transition="blur"] ::view-transition-old(root) {
+  animation: blur-out 0.4s ease forwards;
+}
+[data-transition="blur"] ::view-transition-new(root) {
+  animation: blur-in 0.4s ease forwards;
+}
 
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*) {
